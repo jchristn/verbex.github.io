@@ -1,0 +1,534 @@
+<!DOCTYPE html>  
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Verbex - High-performance inverted index library for .NET. Build powerful search infrastructure with REST API, SDKs, CLI, and web dashboard.">
+    <meta name="keywords" content="search, inverted index, full-text search, .NET, REST API, SDK, TF-IDF">
+    <meta name="author" content="Joel Christner">
+    <title>Verbex - Build Search Infrastructure for Your Apps</title>
+    <link rel="icon" type="image/x-icon" href="icon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-brand">
+                <img src="logo.png" alt="Verbex Logo" class="nav-logo">
+            </a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#quickstart">Quick Start</a>
+                <a href="#sdks">SDKs</a>
+                <a href="#api">API</a>
+                <a href="https://github.com/jchristn/verbex" target="_blank" rel="noopener">GitHub</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#features">Features</a>
+        <a href="#quickstart">Quick Start</a>
+        <a href="#sdks">SDKs</a>
+        <a href="#api">API</a>
+        <a href="https://github.com/jchristn/verbex" target="_blank" rel="noopener">GitHub</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="logo.png" alt="Verbex" class="hero-logo">
+            <h1>Build Search Infrastructure<br>for Your Apps</h1>
+            <p class="hero-subtitle">High-performance inverted index library for .NET. Full-text search with TF-IDF scoring, REST API, multiple SDKs, CLI tools, and a web dashboard. Everything you need to add powerful search to your application.</p>
+            <div class="hero-buttons">
+                <a href="#quickstart" class="btn btn-primary">Get Started</a>
+                <a href="https://github.com/jchristn/verbex" class="btn btn-secondary" target="_blank" rel="noopener">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    View on GitHub
+                </a>
+            </div>
+            <div class="hero-badges">
+                <a href="https://www.nuget.org/packages/Verbex" target="_blank" rel="noopener">
+                    <img src="https://img.shields.io/nuget/v/Verbex?style=flat-square&logo=nuget&label=Verbex&labelColor=1E4FD8&color=2D7FF9" alt="NuGet Verbex">
+                </a>
+                <a href="https://www.nuget.org/packages/Verbex.Sdk" target="_blank" rel="noopener">
+                    <img src="https://img.shields.io/nuget/v/Verbex.Sdk?style=flat-square&logo=nuget&label=Verbex.Sdk&labelColor=1E4FD8&color=2D7FF9" alt="NuGet Verbex.Sdk">
+                </a>
+                <img src="https://img.shields.io/badge/.NET-8.0+-2D7FF9?style=flat-square&logo=dotnet&labelColor=1E4FD8" alt=".NET 8.0+">
+                <img src="https://img.shields.io/badge/License-MIT-2D7FF9?style=flat-square&labelColor=1E4FD8" alt="MIT License">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Everything You Need for Search</h2>
+            <p class="section-subtitle">Verbex provides a complete toolkit for building search infrastructure, from embedded library to full REST service.</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </div>
+                    <h3>TF-IDF Scoring</h3>
+                    <p>Industry-standard relevance ranking with Term Frequency-Inverse Document Frequency algorithm. Scores normalized to 0.0-1.0 for consistent results.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                        </svg>
+                    </div>
+                    <h3>Flexible Storage</h3>
+                    <p>Choose between in-memory SQLite for blazing-fast operations or on-disk storage for persistence. Extensible architecture supports multiple backends.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                    </div>
+                    <h3>Text Processing</h3>
+                    <p>Built-in lemmatization reduces words to base forms. Stop word removal filters noise. Configurable tokenization with min/max length filters.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"></path>
+                            <path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"></path>
+                            <path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"></path>
+                            <path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"></path>
+                            <path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"></path>
+                            <path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"></path>
+                            <path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z"></path>
+                            <path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"></path>
+                        </svg>
+                    </div>
+                    <h3>REST API</h3>
+                    <p>Full-featured HTTP API with bearer token authentication. Complete CRUD operations for indices and documents. Health checks and admin endpoints.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Multiple SDKs</h3>
+                    <p>Official SDKs for C# (.NET 8.0), JavaScript (Node.js/Browser), and Python. Complete API coverage with test harnesses included.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="3" y1="9" x2="21" y2="9"></line>
+                            <line x1="9" y1="21" x2="9" y2="9"></line>
+                        </svg>
+                    </div>
+                    <h3>Web Dashboard</h3>
+                    <p>Modern React-based UI for index management, document operations, and interactive search. Responsive design with theme support.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                            <rect x="9" y="9" width="6" height="6"></rect>
+                            <line x1="9" y1="1" x2="9" y2="4"></line>
+                            <line x1="15" y1="1" x2="15" y2="4"></line>
+                            <line x1="9" y1="20" x2="9" y2="23"></line>
+                            <line x1="15" y1="20" x2="15" y2="23"></line>
+                            <line x1="20" y1="9" x2="23" y2="9"></line>
+                            <line x1="20" y1="14" x2="23" y2="14"></line>
+                            <line x1="1" y1="9" x2="4" y2="9"></line>
+                            <line x1="1" y1="14" x2="4" y2="14"></line>
+                        </svg>
+                    </div>
+                    <h3>CLI Tools</h3>
+                    <p>Powerful command-line interface (vbx) for index management, document operations, search, benchmarking, and stress testing.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3>Multi-Tenant</h3>
+                    <p>Enterprise-ready with tenant isolation, user management, role-based access, and API credential management. Built for SaaS deployments.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
+                            <line x1="16" y1="8" x2="2" y2="22"></line>
+                            <line x1="17.5" y1="15" x2="9" y2="15"></line>
+                        </svg>
+                    </div>
+                    <h3>Rich Metadata</h3>
+                    <p>Attach labels, key-value tags, and custom JSON metadata to documents. Filter searches by metadata for precise results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Start Section -->
+    <section id="quickstart" class="quickstart">
+        <div class="container">
+            <h2 class="section-title">Quick Start</h2>
+            <p class="section-subtitle">Get up and running in minutes with NuGet packages or Docker.</p>
+
+            <div class="quickstart-tabs">
+                <button class="tab-btn active" data-tab="nuget">NuGet Package</button>
+                <button class="tab-btn" data-tab="docker">Docker</button>
+                <button class="tab-btn" data-tab="embedded">Embedded Library</button>
+            </div>
+
+            <div class="tab-content active" id="nuget">
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>Install via NuGet</span>
+                        <button class="copy-btn" data-copy="dotnet add package Verbex">Copy</button>
+                    </div>
+                    <pre><code>dotnet add package Verbex</code></pre>
+                </div>
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>Or install the SDK for client applications</span>
+                        <button class="copy-btn" data-copy="dotnet add package Verbex.Sdk">Copy</button>
+                    </div>
+                    <pre><code>dotnet add package Verbex.Sdk</code></pre>
+                </div>
+            </div>
+
+            <div class="tab-content" id="docker">
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>Start with Docker Compose</span>
+                        <button class="copy-btn" data-copy="git clone https://github.com/jchristn/verbex.git
+cd verbex/docker
+docker compose up -d">Copy</button>
+                    </div>
+                    <pre><code>git clone https://github.com/jchristn/verbex.git
+cd verbex/docker
+docker compose up -d</code></pre>
+                </div>
+                <p class="code-note">Server runs on <code>http://localhost:8080</code>, Dashboard on <code>http://localhost:8200</code></p>
+            </div>
+
+            <div class="tab-content" id="embedded">
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>Use as embedded library</span>
+                        <button class="copy-btn" data-copy="using Verbex;
+
+var config = new VerbexConfiguration
+{
+    StorageMode = StorageMode.InMemory,
+    EnableLemmatizer = true,
+    EnableStopWordRemover = true
+};
+
+using var index = new InvertedIndex(&quot;myindex&quot;, config);
+
+// Add documents
+await index.AddDocumentAsync(Guid.NewGuid(), &quot;The quick brown fox jumps&quot;, &quot;doc1&quot;);
+await index.AddDocumentAsync(Guid.NewGuid(), &quot;Machine learning algorithms&quot;, &quot;doc2&quot;);
+
+// Search
+var results = await index.SearchAsync(&quot;fox machine&quot;);
+foreach (var result in results)
+    Console.WriteLine($&quot;{result.DocumentName}: {result.Score:F4}&quot;);">Copy</button>
+                    </div>
+                    <pre><code><span class="keyword">using</span> Verbex;
+
+<span class="keyword">var</span> config = <span class="keyword">new</span> <span class="type">VerbexConfiguration</span>
+{
+    StorageMode = <span class="type">StorageMode</span>.InMemory,
+    EnableLemmatizer = <span class="keyword">true</span>,
+    EnableStopWordRemover = <span class="keyword">true</span>
+};
+
+<span class="keyword">using var</span> index = <span class="keyword">new</span> <span class="type">InvertedIndex</span>(<span class="string">"myindex"</span>, config);
+
+<span class="comment">// Add documents</span>
+<span class="keyword">await</span> index.AddDocumentAsync(<span class="type">Guid</span>.NewGuid(), <span class="string">"The quick brown fox jumps"</span>, <span class="string">"doc1"</span>);
+<span class="keyword">await</span> index.AddDocumentAsync(<span class="type">Guid</span>.NewGuid(), <span class="string">"Machine learning algorithms"</span>, <span class="string">"doc2"</span>);
+
+<span class="comment">// Search</span>
+<span class="keyword">var</span> results = <span class="keyword">await</span> index.SearchAsync(<span class="string">"fox machine"</span>);
+<span class="keyword">foreach</span> (<span class="keyword">var</span> result <span class="keyword">in</span> results)
+    <span class="type">Console</span>.WriteLine($<span class="string">"{result.DocumentName}: {result.Score:F4}"</span>);</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SDKs Section -->
+    <section id="sdks" class="sdks">
+        <div class="container">
+            <h2 class="section-title">Official SDKs</h2>
+            <p class="section-subtitle">Use Verbex in your favorite language with official SDKs that provide complete API coverage.</p>
+
+            <div class="sdk-grid">
+                <div class="sdk-card">
+                    <div class="sdk-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor" class="sdk-icon csharp">
+                            <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm-1.256 5.25h2.508l-.478 2.756h1.576l.478-2.756h2.508l-.478 2.756h1.534v2.25h-1.926l-.392 2.244h1.568v2.25h-1.96l-.48 2.756h-2.508l.48-2.756H11.15l-.48 2.756H8.162l.48-2.756H7.108v-2.25h1.926l.392-2.244H7.858v-2.25h1.96l.48-2.756zm1.146 5.006l-.392 2.244h2.004l.392-2.244h-2.004z"/>
+                        </svg>
+                        <h3>C# / .NET</h3>
+                    </div>
+                    <p>Full-featured SDK for .NET 8.0+ applications. Type-safe operations with async/await support.</p>
+                    <div class="sdk-install">
+                        <code>dotnet add package Verbex.Sdk</code>
+                    </div>
+                    <a href="https://www.nuget.org/packages/Verbex.Sdk" class="sdk-link" target="_blank" rel="noopener">View on NuGet</a>
+                </div>
+
+                <div class="sdk-card">
+                    <div class="sdk-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor" class="sdk-icon javascript">
+                            <path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/>
+                        </svg>
+                        <h3>JavaScript</h3>
+                    </div>
+                    <p>Works in Node.js 18+ and modern browsers. Promise-based API with full TypeScript support.</p>
+                    <div class="sdk-install">
+                        <code>npm install verbex-sdk</code>
+                    </div>
+                    <a href="https://github.com/jchristn/verbex/tree/main/sdk/javascript" class="sdk-link" target="_blank" rel="noopener">View on GitHub</a>
+                </div>
+
+                <div class="sdk-card">
+                    <div class="sdk-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor" class="sdk-icon python">
+                            <path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/>
+                        </svg>
+                        <h3>Python</h3>
+                    </div>
+                    <p>Python 3.8+ compatible SDK using requests library. Simple, Pythonic API design.</p>
+                    <div class="sdk-install">
+                        <code>pip install verbex-sdk</code>
+                    </div>
+                    <a href="https://github.com/jchristn/verbex/tree/main/sdk/python" class="sdk-link" target="_blank" rel="noopener">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- API Section -->
+    <section id="api" class="api">
+        <div class="container">
+            <h2 class="section-title">REST API</h2>
+            <p class="section-subtitle">Complete HTTP API with bearer token authentication. Full CRUD operations for indices and documents.</p>
+
+            <div class="api-grid">
+                <div class="api-endpoints">
+                    <h3>Endpoints Overview</h3>
+                    <div class="endpoint-group">
+                        <h4>Authentication</h4>
+                        <div class="endpoint"><span class="method post">POST</span> <code>/v1.0/auth/login</code></div>
+                        <div class="endpoint"><span class="method get">GET</span> <code>/v1.0/auth/validate</code></div>
+                    </div>
+                    <div class="endpoint-group">
+                        <h4>Indices</h4>
+                        <div class="endpoint"><span class="method get">GET</span> <code>/v1.0/indices</code></div>
+                        <div class="endpoint"><span class="method post">POST</span> <code>/v1.0/indices</code></div>
+                        <div class="endpoint"><span class="method get">GET</span> <code>/v1.0/indices/{name}</code></div>
+                        <div class="endpoint"><span class="method delete">DELETE</span> <code>/v1.0/indices/{name}</code></div>
+                    </div>
+                    <div class="endpoint-group">
+                        <h4>Documents</h4>
+                        <div class="endpoint"><span class="method get">GET</span> <code>/v1.0/indices/{name}/documents</code></div>
+                        <div class="endpoint"><span class="method post">POST</span> <code>/v1.0/indices/{name}/documents</code></div>
+                        <div class="endpoint"><span class="method delete">DELETE</span> <code>/v1.0/indices/{name}/documents/{id}</code></div>
+                    </div>
+                    <div class="endpoint-group">
+                        <h4>Search</h4>
+                        <div class="endpoint"><span class="method post">POST</span> <code>/v1.0/indices/{name}/search</code></div>
+                    </div>
+                </div>
+
+                <div class="api-example">
+                    <h3>Example: Search Request</h3>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>curl</span>
+                            <button class="copy-btn" data-copy="curl -X POST 'http://localhost:8080/v1.0/indices/myindex/search' \
+  -H 'Authorization: Bearer YOUR_TOKEN' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    \"Query\": \"machine learning\",
+    \"MaxResults\": 10,
+    \"Labels\": [\"important\"],
+    \"Tags\": {\"category\": \"tech\"}
+  }'">Copy</button>
+                        </div>
+                        <pre><code>curl -X POST 'http://localhost:8080/v1.0/indices/myindex/search' \
+  -H 'Authorization: Bearer YOUR_TOKEN' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "Query": "machine learning",
+    "MaxResults": 10,
+    "Labels": ["important"],
+    "Tags": {"category": "tech"}
+  }'</code></pre>
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>Response</span>
+                        </div>
+                        <pre><code>{
+  "Success": true,
+  "Data": [
+    {
+      "DocumentId": "550e8400-e29b-41d4-a716-446655440000",
+      "DocumentName": "ml-paper-1",
+      "Score": 0.8742,
+      "MatchedTerms": ["machine", "learning"],
+      "TermScores": {
+        "machine": 0.4521,
+        "learning": 0.4221
+      }
+    }
+  ]
+}</code></pre>
+                    </div>
+                    <a href="https://github.com/jchristn/verbex/blob/main/REST_API.md" class="btn btn-secondary" target="_blank" rel="noopener">View Full API Documentation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLI Section -->
+    <section class="cli">
+        <div class="container">
+            <h2 class="section-title">Powerful CLI</h2>
+            <p class="section-subtitle">Manage indices, documents, and run searches from the command line with the <code>vbx</code> tool.</p>
+
+            <div class="cli-examples">
+                <div class="cli-example">
+                    <h4>Create an Index</h4>
+                    <div class="code-block">
+                        <pre><code>vbx index create myindex --storage disk --lemmatizer --stopwords</code></pre>
+                    </div>
+                </div>
+                <div class="cli-example">
+                    <h4>Add Documents</h4>
+                    <div class="code-block">
+                        <pre><code>vbx doc add paper1 --content "Deep learning in NLP" --tag category=ml</code></pre>
+                    </div>
+                </div>
+                <div class="cli-example">
+                    <h4>Search with Filters</h4>
+                    <div class="code-block">
+                        <pre><code>vbx search "learning algorithms" --and --limit 10 --filter category=ml</code></pre>
+                    </div>
+                </div>
+                <div class="cli-example">
+                    <h4>Benchmark Performance</h4>
+                    <div class="code-block">
+                        <pre><code>vbx maint benchmark --documents 1000</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Build Search Infrastructure?</h2>
+            <p>Get started with Verbex today. MIT licensed, free for commercial use.</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/jchristn/verbex" class="btn btn-primary" target="_blank" rel="noopener">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    Star on GitHub
+                </a>
+                <a href="https://www.nuget.org/packages/Verbex" class="btn btn-secondary" target="_blank" rel="noopener">Install from NuGet</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="logo.png" alt="Verbex" class="footer-logo">
+                    <p>High-performance inverted index library for .NET</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <a href="https://github.com/jchristn/verbex" target="_blank" rel="noopener">GitHub</a>
+                        <a href="https://github.com/jchristn/verbex/blob/main/REST_API.md" target="_blank" rel="noopener">API Docs</a>
+                        <a href="https://github.com/jchristn/verbex/blob/main/VBX_CLI.md" target="_blank" rel="noopener">CLI Reference</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Packages</h4>
+                        <a href="https://www.nuget.org/packages/Verbex" target="_blank" rel="noopener">Verbex (NuGet)</a>
+                        <a href="https://www.nuget.org/packages/Verbex.Sdk" target="_blank" rel="noopener">Verbex.Sdk (NuGet)</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Community</h4>
+                        <a href="https://github.com/jchristn/verbex/issues" target="_blank" rel="noopener">Issues</a>
+                        <a href="https://github.com/jchristn/verbex/discussions" target="_blank" rel="noopener">Discussions</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>MIT License. Built with care for developers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
